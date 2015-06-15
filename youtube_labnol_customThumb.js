@@ -18,7 +18,8 @@ for (n = 0; n < v.length; n++) {
     y.appendChild(c);
     y.onclick = function() {
         var a = document.createElement("iframe");
-        a.setAttribute("src", "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1");
+        /* thanks -- how to do autoplay AND specific start time: stackoverflow.com/questions/28081192 */
+        a.setAttribute("src", "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1&start=" + this.getAttribute("data-start-time"));
         a.style.width = this.style.width;
         a.style.height = this.style.height;
         this.parentNode.replaceChild(a, this)
